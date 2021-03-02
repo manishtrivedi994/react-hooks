@@ -2,9 +2,12 @@ import { useEffect, useReducer, useState } from 'react';
 import './App.css';
 
 function App() {
-  const [number, setNumber] = useReducer((number, newNumber) => number + newNumber, 0);
+  const [checked, toggle] = useReducer((checked) => !checked, false);
 
-  return <h1 onClick={() => setNumber(1)}>{number}</h1>
+  return <>
+      <input type="checkbox" onChange={toggle} value={checked}/>
+      {checked ? "checked" : "not checked"}
+      </>
 }
 
 export default App;
